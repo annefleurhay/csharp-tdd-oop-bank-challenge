@@ -35,10 +35,7 @@ namespace Boolean.CSharp.Main
             return _bankAccounts.Count;
         }
 
-        public decimal DepositMoney(decimal deposit)
-        {
-            return 5;
-        }
+       
 
         public List<IAccount> bankAccounts { get { return _bankAccounts; } }
         public List<ITransaction> transactionhistory { get {  return _transactionhistory; } }

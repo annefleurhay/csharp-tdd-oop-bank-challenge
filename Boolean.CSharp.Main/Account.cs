@@ -14,9 +14,22 @@ namespace Boolean.CSharp.Main
         public int Id { get; set; }
         public string Type { get; set; }
 
-        public decimal DepositMoney(decimal deposit)
+
+
+        public decimal DepositMoney(decimal deposit) //parameter welke ID je nodig hebt?
         {
-            return 50;
+            Balance += deposit;
+            return Balance;
         }
+
+        public void WithdrawMoney(int v)
+        {
+           
+        }
+
+        //public decimal DepositMoney(decimal deposit)
+        //{
+        //    return 50;
+        //} wellicht toch een optie om deposits en withdrawels te doen in de accounts?
     }
 }

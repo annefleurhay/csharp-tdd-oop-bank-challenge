@@ -35,15 +35,28 @@ namespace Boolean.CSharp.Test
         [Test] public void DepositMoney() 
         {
 
-            Bank bank = new Bank();
+            //Bank bank = new Bank();
 
-            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Savings", Id = 16 };
+            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
+            Account account2 = new Account { Name = "Chiara", Address = "Serving", Balance = 13400, Type = "Current", Id = 5 };
 
+            
             account.DepositMoney(200);
+            account2.DepositMoney(500);
 
             Assert.IsTrue(account.Balance == 2200);
+            Assert.IsTrue(account2.Balance == 13900);
 
 
+        }
+
+        [Test] public void WithdrawMoney() {
+
+            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
+
+            account.WithdrawMoney(100);
+
+            Assert.IsTrue(account.Balance == 1900);
         }
 
     }
