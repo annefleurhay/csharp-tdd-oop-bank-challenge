@@ -4,20 +4,17 @@ using NUnit.Framework;
 namespace Boolean.CSharp.Test
 {
     [TestFixture]
-    public class CoreTests
+    public class Tests
     {
-        private Core _core;
+        //private Core _core;
 
-        public CoreTests()
+        [Test] public void Test()
         {
-            _core = new Core();
+            Bank bank = new Bank();
 
-        }
+            bank.add(new Account { Name = "Annefleur Hay", Address = "Woonwijk", Balancec = 2000m });
 
-        [Test]
-        public void TestQuestion1()
-        {
-
+            Assert.IsTrue(bank.Count() == 1);
         }
 
     }
