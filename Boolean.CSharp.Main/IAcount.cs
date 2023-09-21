@@ -15,7 +15,10 @@ namespace Boolean.CSharp.Main
 
         public string Type {  get; set; }
 
+        decimal DepositMoney(decimal deposit);
+        decimal WithdrawMoney(decimal withdrawal);
 
+        string Transaction(string transaction);
 
     }
 }

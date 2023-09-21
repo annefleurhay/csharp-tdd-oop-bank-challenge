@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Boolean.CSharp.Main
 {
-    public class Account : IAccount
+    public abstract class Account : IAccount
+
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -14,22 +15,23 @@ namespace Boolean.CSharp.Main
         public int Id { get; set; }
         public string Type { get; set; }
 
-
-
-        public decimal DepositMoney(decimal deposit) //parameter welke ID je nodig hebt?
+        public decimal DepositMoney(decimal deposit)
         {
             Balance += deposit;
             return Balance;
         }
 
-        public void WithdrawMoney(int v)
+        public decimal WithdrawMoney(decimal withdrawal)
         {
-           
+            Balance -= withdrawal;
+            return Balance;
         }
 
-        //public decimal DepositMoney(decimal deposit)
-        //{
-        //    return 50;
-        //} wellicht toch een optie om deposits en withdrawels te doen in de accounts?
+        public string Transaction(string transaction)
+        {
+             
+         return "hello";
+            
+        }
     }
 }

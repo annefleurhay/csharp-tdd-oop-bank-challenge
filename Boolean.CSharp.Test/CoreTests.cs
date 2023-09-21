@@ -11,8 +11,8 @@ namespace Boolean.CSharp.Test
         [Test] public void AddCurrent()
         {
             Bank bank = new Bank();
-            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type="Current", Id= 16 };
-            IAccount account1 = new Account { Name = "haha", Address = "noorwegen", Balance = 300m };
+            Current account = new Current { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type="Current", Id= 16 };
+            IAccount account1 = new Current { Name = "haha", Address = "noorwegen", Balance = 300m };
             
             //bank.Add(new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m });
      
@@ -23,7 +23,7 @@ namespace Boolean.CSharp.Test
         [Test] public void AddSavings()
         {
             Bank bank = new Bank();
-            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Savings", Id = 16 };
+            Current account = new Current { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Savings", Id = 16 };
 
             bank.AddSavingsAccount(account);
 
@@ -35,10 +35,10 @@ namespace Boolean.CSharp.Test
         [Test] public void DepositMoney() 
         {
 
-            //Bank bank = new Bank();
+            
 
-            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
-            Account account2 = new Account { Name = "Chiara", Address = "Serving", Balance = 13400, Type = "Current", Id = 5 };
+            Current account = new Current { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
+            Current account2 = new Current { Name = "Chiara", Address = "Serving", Balance = 13400, Type = "Current", Id = 5 };
 
             
             account.DepositMoney(200);
@@ -52,11 +52,21 @@ namespace Boolean.CSharp.Test
 
         [Test] public void WithdrawMoney() {
 
-            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
+            Current account = new Current { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m, Type = "Current", Id = 16 };
 
             account.WithdrawMoney(100);
 
             Assert.IsTrue(account.Balance == 1900);
+        }
+
+        [Test] public void OnetransactionStatement() 
+        { 
+            Current account = new () { Name = "Annefleur", Address = "Woonwijk", Balance = 0, Type = "Current", Id = 16 };
+            account.DepositMoney(200);
+
+            Assert.IsTrue(account.Transaction("haha") == "haha");
+            
+
         }
 
     }

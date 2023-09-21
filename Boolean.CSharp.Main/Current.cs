@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boolean.CSharp.Main
 {
-    public class Savings : Account
+    public class Current : Account
     {
         
     }
