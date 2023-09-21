@@ -9,15 +9,29 @@ namespace Boolean.CSharp.Main
     public class Bank
     {
         //Lijst met accounts
-        private new List<IAcount> _bankAccounts = new List<IAcount>();
+        private List<IAccount> _bankAccounts = new List<IAccount>();
         
 
         
 
 
 
-       
+       public List<IAccount> bankAccounts { get {  return _bankAccounts; } }
 
+        public void AddCurrentAccount(IAccount account)
+        {
+            _bankAccounts.Add(account);
+        }
+
+        public void AddSavingsAccount(IAccount account)
+        {
+            _bankAccounts.Add(account);
+        }
+
+        public int Count()
+        {
+            return _bankAccounts.Count;
+        }
 
     }
 }

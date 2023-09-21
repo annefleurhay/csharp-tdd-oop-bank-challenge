@@ -8,13 +8,28 @@ namespace Boolean.CSharp.Test
     {
         //private Core _core;
 
-        [Test] public void Test()
+        [Test] public void AddCurrent()
         {
             Bank bank = new Bank();
-
-            bank.add(new Account { Name = "Annefleur Hay", Address = "Woonwijk", Balancec = 2000m });
-
+            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m };
+            IAccount account1 = new Account { Name = "haha", Address = "noorwegen", Balance = 300m };
+            
+            //bank.Add(new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m });
+     
+            bank.AddCurrentAccount(account1);
             Assert.IsTrue(bank.Count() == 1);
+        }
+
+        [Test] public void AddSavings()
+        {
+            Bank bank = new Bank();
+            Account account = new Account { Name = "Annefleur", Address = "Woonwijk", Balance = 2000m };
+
+            bank.AddSavingsAccount(account);
+
+            Assert.IsTrue(bank.Count() == 2);
+
+
         }
 
     }

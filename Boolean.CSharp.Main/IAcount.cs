@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Boolean.CSharp.Main
 {
-    public interface IAcount
+    public interface IAccount
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public decimal Balancec {  get; set; }
+        public decimal Balance {  get; set; }
 
 
 
