@@ -65,12 +65,13 @@ namespace Boolean.CSharp.Test
             account.DepositMoney(1000);
             account.WithdrawMoney(200);
 
-            string result = account.StatementHistory();
+             string statement = account.StatementHistory(); 
 
-            Assert.IsTrue(result == "Date       || credit  || debit  || balance\n" +
-                          "13/09/2023 || 1000.00 ||        || 1000.00\n" +
-                          "13/09/2023 ||         || 200.00 || 800.00\n");
+            string expectedStatement = "Date       || credit  || debit  || balance\n" +
+                              "13/09/2023 || 1000.00 ||        || 1000.00\n" +
+                              "13/09/2023 ||         || 200.00 || 800.00\n";
 
+            Assert.IsTrue(statement == expectedStatement);
 
         }
 

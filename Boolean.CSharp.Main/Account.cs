@@ -21,30 +21,78 @@ namespace Boolean.CSharp.Main
         public decimal DepositMoney(decimal deposit)
         {
             Balance += deposit;
-            _transactions.Add(new Transaction { Date = DateTime.Now, Credit = deposit, Balance = Balance });
+            _transactions.Add(new Transaction { Date = DateTime.Now, Credit = deposit, Balance = Balance, TransactionType= "Credit" });
             return Balance;
         }
 
         public decimal WithdrawMoney(decimal withdrawal)
         {
             Balance -= withdrawal;
-            _transactions.Add(new Transaction { Date = DateTime.Now, Debit = withdrawal, Balance = Balance });
+            _transactions.Add(new Transaction { Date = DateTime.Now, Debit = withdrawal, Balance = Balance, TransactionType = "Debit" });
             return Balance;
         }
 
         public string StatementHistory()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Date       || credit  || debit  || balance");
+            //StringBuilder sb = new StringBuilder();
+            //sb.AppendLine("Date       || credit  || debit  || balance");
 
-            var sortedTransactonHistory = _transactions.OrderByDescending(t => t.Date);
+            //var sortedTransactonHistory = _transactions.OrderByDescending(t => t.Date);
 
-            foreach (var transaction in sortedTransactonHistory)
+            //foreach (var transaction in sortedTransactonHistory)
+            //{
+            //    sb.AppendLine($"{transaction.Date.ToString("dd/MM/yyyy")} || {transaction.Credit.ToString("0.00")} || {transaction.Debit.ToString("0.00")} || {transaction.Balance.ToString("0.00")}");
+
+            //}
+            //return sb.ToString();
+
+            //Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ", "Date", "Credit", "Debit", "Balance");
+            //decimal runningBalance = 0;
+            //foreach (var transaction in _transactions.OrderByDescending(t => t.Date)) 
+            //{
+            //    string transactionType = transaction.TransactionType;
+
+            //    decimal creditAmount = TransactionType == "Credit" ? transaction.Balance : 0;
+            //    decimal debitAmount = TransactionType == "Debit" ? transaction.Balance : 0;
+
+            //    runningBalance += creditAmount - debitAmount;
+            //    Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ",
+            //    transaction.Date.ToShortDateString(), 
+            //    creditAmount.ToString("0.00"),
+            //    debitAmount.ToString("0.00"),
+            //    runningBalance.ToString("0.00"));
+            //}
+            StringBuilder statement = new StringBuilder();
+            Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ", "Date", "Credit", "Debit", "Balance");
+
+            decimal runningBalance = 0;
+
+            foreach (var transaction in _transactions.OrderBy(t => t.Date)) 
             {
-                sb.AppendLine($"{transaction.Date.ToString("dd/MM/yyyy")} || {transaction.Credit.ToString("0.00")} || {transaction.Debit.ToString("0.00")} || {transaction.Balance.ToString("0.00")}");
+                // Haal het type transactie op
+                string transactionType = transaction.TransactionType;
 
+                
+                decimal creditAmount = transactionType == "Credit" ? transaction.Credit : 0;
+                decimal debitAmount = transactionType == "Debit" ? transaction.Debit : 0;
+
+                
+                runningBalance += creditAmount - debitAmount;
+
+                
+                Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ",
+                    transaction.Date.ToShortDateString(),
+                    creditAmount.ToString("0.00"),
+                    debitAmount.ToString("0.00"),
+                    runningBalance.ToString("0.00"));
             }
-            return sb.ToString();
+
+            return statement.ToString();
+
+
+
+
+
         }
 
         public string Transaction(int transactionAmount)

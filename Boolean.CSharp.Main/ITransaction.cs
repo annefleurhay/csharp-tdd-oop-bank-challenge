@@ -10,6 +10,12 @@ namespace Boolean.CSharp.Main
     {
         //niet gebruiken
 
+        DateTime Date { get; set; }
+        decimal Credit { get; set; }
+        decimal Debit { get; set; }
+        decimal Balance { get; set; }
+         string TransactionType { get; set; }
+
 
     }
 }
