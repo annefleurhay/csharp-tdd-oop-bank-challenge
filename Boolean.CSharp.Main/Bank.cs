@@ -11,7 +11,7 @@ namespace Boolean.CSharp.Main
         //Lijst met accounts
         private List<IAccount> _bankAccounts = new List<IAccount>();
 
-        private List<ITransaction> _transactionhistory = new List<ITransaction>();
+       // private List<ITransaction> _transactionhistory = new List<ITransaction>();
         
 
         
@@ -38,6 +38,6 @@ namespace Boolean.CSharp.Main
        
 
         public List<IAccount> bankAccounts { get { return _bankAccounts; } }
-        public List<ITransaction> transactionhistory { get {  return _transactionhistory; } }
+        //public List<ITransaction> transactionhistory { get {  return _transactionhistory; } }
     }
 }

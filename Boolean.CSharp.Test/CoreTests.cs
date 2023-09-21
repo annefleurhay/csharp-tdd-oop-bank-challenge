@@ -59,13 +59,18 @@ namespace Boolean.CSharp.Test
             Assert.IsTrue(account.Balance == 1900);
         }
 
-        [Test] public void OnetransactionStatement() 
+        [Test] public void TransactionStatement() 
         { 
             Current account = new () { Name = "Annefleur", Address = "Woonwijk", Balance = 0, Type = "Current", Id = 16 };
-            account.DepositMoney(200);
+            account.DepositMoney(1000);
+            account.WithdrawMoney(200);
 
-            Assert.IsTrue(account.Transaction("haha") == "haha");
-            
+            string result = account.StatementHistory();
+
+            Assert.IsTrue(result == "Date       || credit  || debit  || balance\n" +
+                          "13/09/2023 || 1000.00 ||        || 1000.00\n" +
+                          "13/09/2023 ||         || 200.00 || 800.00\n");
+
 
         }
 

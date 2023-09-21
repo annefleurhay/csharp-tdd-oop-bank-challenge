@@ -8,10 +8,7 @@ namespace Boolean.CSharp.Main
 {
     public interface ITransaction
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Date { get; set; }
-        public decimal CurrentBalance { get; set; }
+        //niet gebruiken
 
 
     }
