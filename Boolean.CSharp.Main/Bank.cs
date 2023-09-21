@@ -10,16 +10,6 @@ namespace Boolean.CSharp.Main
     {
         //Lijst met accounts
         private List<IAccount> _bankAccounts = new List<IAccount>();
-
-       // private List<ITransaction> _transactionhistory = new List<ITransaction>();
-        
-
-        
-
-
-
-       
-
         public void AddCurrentAccount(IAccount account)
         {
             _bankAccounts.Add(account);
@@ -34,10 +24,6 @@ namespace Boolean.CSharp.Main
         {
             return _bankAccounts.Count;
         }
-
-       
-
         public List<IAccount> bankAccounts { get { return _bankAccounts; } }
-        //public List<ITransaction> transactionhistory { get {  return _transactionhistory; } }
     }
 }

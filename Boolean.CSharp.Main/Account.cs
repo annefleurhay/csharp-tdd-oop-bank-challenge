@@ -34,34 +34,7 @@ namespace Boolean.CSharp.Main
 
         public string StatementHistory()
         {
-            //StringBuilder sb = new StringBuilder();
-            //sb.AppendLine("Date       || credit  || debit  || balance");
-
-            //var sortedTransactonHistory = _transactions.OrderByDescending(t => t.Date);
-
-            //foreach (var transaction in sortedTransactonHistory)
-            //{
-            //    sb.AppendLine($"{transaction.Date.ToString("dd/MM/yyyy")} || {transaction.Credit.ToString("0.00")} || {transaction.Debit.ToString("0.00")} || {transaction.Balance.ToString("0.00")}");
-
-            //}
-            //return sb.ToString();
-
-            //Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ", "Date", "Credit", "Debit", "Balance");
-            //decimal runningBalance = 0;
-            //foreach (var transaction in _transactions.OrderByDescending(t => t.Date)) 
-            //{
-            //    string transactionType = transaction.TransactionType;
-
-            //    decimal creditAmount = TransactionType == "Credit" ? transaction.Balance : 0;
-            //    decimal debitAmount = TransactionType == "Debit" ? transaction.Balance : 0;
-
-            //    runningBalance += creditAmount - debitAmount;
-            //    Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ",
-            //    transaction.Date.ToShortDateString(), 
-            //    creditAmount.ToString("0.00"),
-            //    debitAmount.ToString("0.00"),
-            //    runningBalance.ToString("0.00"));
-            //}
+           
             StringBuilder statement = new StringBuilder();
             Console.WriteLine("{0,10} || {1,10} || {2,10} || {3,10} ", "Date", "Credit", "Debit", "Balance");
 
@@ -69,7 +42,7 @@ namespace Boolean.CSharp.Main
 
             foreach (var transaction in _transactions.OrderBy(t => t.Date)) 
             {
-                // Haal het type transactie op
+              
                 string transactionType = transaction.TransactionType;
 
                 
@@ -88,9 +61,6 @@ namespace Boolean.CSharp.Main
             }
 
             return statement.ToString();
-
-
-
 
 
         }
