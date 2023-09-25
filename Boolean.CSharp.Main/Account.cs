@@ -65,11 +65,6 @@ namespace Boolean.CSharp.Main
 
         }
 
-        public string Transaction(int transactionAmount)
-        {
-             
-         return "hello";
-            
-        }
+      
     }
 }

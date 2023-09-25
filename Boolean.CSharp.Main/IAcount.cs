@@ -18,7 +18,7 @@ namespace Boolean.CSharp.Main
         decimal DepositMoney(decimal deposit);
         decimal WithdrawMoney(decimal withdrawal);
 
-        string Transaction(int transaction);
+        
 
     }
 }
